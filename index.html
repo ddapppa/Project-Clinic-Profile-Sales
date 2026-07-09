@@ -1,40 +1,56 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sozo Skin Clinic - [NAMA_SALES] | Konsultasi Gratis</title>
-<meta name="description" content="Konsultasi gratis perawatan kulit dan kecantikan bersama [NAMA_SALES], Beauty Consultant Sozo Skin Clinic.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sozo Skin Clinic - [NAMA_SALES] | Konsultasi Gratis Perawatan Kulit</title>
+  <meta name="description" content="Konsultasi gratis perawatan kulit dan kecantikan bersama [NAMA_SALES], Beauty Consultant Sozo Skin Clinic. Cicilan 0%, cashback hingga 500 ribu.">
 
-<!-- Google Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<!-- Font Awesome Icons via CDN -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-<link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<!-- ===== TOP BAR ===== -->
+<div class="top-bar">
+  <div class="top-bar-inner">
+    <span><i class="fa-solid fa-truck"></i> Cicilan 0% untuk semua treatment</span>
+    <span class="top-bar-divider">|</span>
+    <span><i class="fa-solid fa-gift"></i> Cashback hingga <strong>Rp500.000</strong> — Kode: <strong>SOZOSPECIAL</strong></span>
+  </div>
+</div>
 
 <!-- ===== NAVBAR ===== -->
 <header class="navbar" id="navbar">
   <div class="nav-container">
     <a href="#home" class="nav-logo">
-      Sozo Skin Clinic <span class="nav-sub">| [NAMA_SALES]</span>
+      <span class="logo-sozo">SOZO</span><span class="logo-skin">SKIN</span>
+      <span class="nav-sub">| [NAMA_SALES]</span>
     </a>
 
     <nav class="nav-menu" id="navMenu">
-      <a href="#home" class="nav-link">Home</a>
+      <a href="#home" class="nav-link active">Home</a>
       <a href="#layanan" class="nav-link">Layanan</a>
       <a href="#promo" class="nav-link">Promo</a>
+      <a href="#bestseller" class="nav-link">Best Sellers</a>
       <a href="#testimoni" class="nav-link">Testimoni</a>
       <a href="#kontak" class="nav-link">Kontak</a>
     </nav>
 
-    <a href="#" class="btn btn-wa nav-cta" id="navCta">
-      <i class="fa-brands fa-whatsapp"></i> Chat WA
-    </a>
+    <div class="nav-actions">
+      <a href="#" class="nav-icon" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></a>
+      <a href="#" class="nav-icon" aria-label="User"><i class="fa-regular fa-user"></i></a>
+      <a href="#" class="btn btn-wa nav-cta" id="navCta">
+        <i class="fa-brands fa-whatsapp"></i> Chat WA
+      </a>
+    </div>
 
     <button class="hamburger" id="hamburger" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -44,182 +60,277 @@
 
 <!-- ===== HERO SECTION ===== -->
 <section class="hero" id="home">
+  <div class="hero-bg-gradient"></div>
   <div class="hero-container">
     <div class="hero-text reveal">
-      <span class="hero-badge">Sozo Skin Clinic Official Partner</span>
-      <h1>Konsultasi Gratis Kulit Impianmu Bersama <span class="highlight">[NAMA_SALES]</span></h1>
-      <p class="hero-sub">Beauty Consultant terpercaya siap membantu kamu memilih treatment terbaik dengan harga terjangkau dan cicilan 0%.</p>
+      <span class="hero-badge">✨ NEW ARRIVAL</span>
+      <h1>Reveal Your<br><em>Natural Glow</em></h1>
+      <p class="hero-sub">Temukan perawatan kulit terbaik yang menonjolkan kecantikan alami Anda. Lembut, efektif, dan dirancang khusus untuk Anda.</p>
       <div class="hero-btns">
-        <a href="#" class="btn btn-wa btn-lg" id="heroWaBtn">
-          <i class="fa-brands fa-whatsapp"></i> Chat via WhatsApp
+        <a href="#" class="btn btn-primary btn-lg" id="heroWaBtn">
+          <i class="fa-brands fa-whatsapp"></i> Konsultasi Gratis
         </a>
-        <a href="#layanan" class="btn btn-outline btn-lg">Lihat Layanan</a>
+        <a href="#layanan" class="btn btn-ghost btn-lg">
+          <i class="fa-solid fa-play"></i> Lihat Layanan
+        </a>
       </div>
     </div>
     <div class="hero-img reveal">
-      <img src="assets/hero-image.jpg" alt="Perawatan kulit Sozo Skin Clinic" onerror="this.src='https://placehold.co/500x500/FFE4EC/D6336C?text=Sozo+Skin+Clinic'">
+      <img src="assets/gambar1.jpg" alt="Sozo Skin Clinic Promo">
+      <div class="hero-float-badge">
+        <span class="float-discount">Cicilan</span>
+        <span class="float-big">0%</span>
+        <span class="float-sub">Untuk Semua<br>Treatment</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Trust Badges -->
+  <div class="trust-badges reveal">
+    <div class="trust-item">
+      <div class="trust-icon"><i class="fa-solid fa-leaf"></i></div>
+      <div>
+        <strong>Bahan Alami</strong>
+        <span>Aman & Teruji</span>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon"><i class="fa-solid fa-user-doctor"></i></div>
+      <div>
+        <strong>Dokter Berpengalaman</strong>
+        <span>Terbukti Klinis</span>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon"><i class="fa-solid fa-heart"></i></div>
+      <div>
+        <strong>Cruelty Free</strong>
+        <span>Peduli Lingkungan</span>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon"><i class="fa-solid fa-shield-halved"></i></div>
+      <div>
+        <strong>BPOM Certified</strong>
+        <span>100% Terjamin</span>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ===== WHY SOZO SECTION ===== -->
-<section class="why-sozo" id="kenapa">
+<!-- ===== LAYANAN / KATEGORI ===== -->
+<section class="categories" id="layanan">
   <div class="section-head reveal">
-    <span class="section-tag">Kenapa Pilih Sozo</span>
-    <h2>Keunggulan Sozo Dibanding Klinik Lain</h2>
-    <p>Komitmen kami memberikan pelayanan terbaik, aman, dan terpercaya.</p>
+    <span class="section-tag">Layanan Kami</span>
+    <h2>Pilih Kategori Perawatan</h2>
+    <p>Treatment terbaik dari Sozo Skin Clinic sesuai kebutuhan kulit Anda</p>
   </div>
 
-  <div class="why-grid">
-    <div class="why-card reveal"><i class="fa-solid fa-user-doctor"></i><h3>Tenaga Medis Profesional</h3><p>Ditangani dokter berpengalaman & bersertifikat.</p></div>
-    <div class="why-card reveal"><i class="fa-solid fa-microchip"></i><h3>Teknologi Terkini</h3><p>Mesin berkualitas tinggi untuk hasil maksimal.</p></div>
-    <div class="why-card reveal"><i class="fa-solid fa-tags"></i><h3>Harga Terjangkau</h3><p>Perawatan premium dengan harga bersahabat.</p></div>
-    <div class="why-card reveal"><i class="fa-solid fa-comments"></i><h3>Konsultasi Gratis</h3><p>Reservasi sekarang, dapatkan diskon spesial.</p></div>
-    <div class="why-card reveal"><i class="fa-solid fa-credit-card"></i><h3>Cicilan 0%</h3><p>Bayar mudah pakai paylater tanpa bunga.</p></div>
-    <div class="why-card reveal"><i class="fa-solid fa-map-location-dot"></i><h3>60+ Cabang</h3><p>Tersebar di kota-kota besar Indonesia.</p></div>
-  </div>
+  <div class="category-grid">
+    <div class="category-card reveal" data-treatment="Injectable">
+      <div class="category-img-wrap">
+        <img src="assets/gambar1.jpg" alt="Injectable Treatment">
+        <div class="category-overlay">
+          <span class="cat-badge">Popular</span>
+        </div>
+      </div>
+      <h3>Injectable</h3>
+      <p>Skin Booster, Zo-tox, Filler, Threadlift</p>
+      <span class="cat-count">4 Treatment</span>
+    </div>
 
-  <div class="stats-grid reveal">
-    <div class="stat-item"><span class="counter" data-target="60">0</span>+<p>Cabang</p></div>
-    <div class="stat-item"><span class="counter" data-target="1000">0</span>+<p>Pasien Puas</p></div>
-    <div class="stat-item"><span class="counter" data-target="50">0</span>+<p>Dokter Ahli</p></div>
+    <div class="category-card reveal" data-treatment="Facial & Skin">
+      <div class="category-img-wrap">
+        <img src="assets/gambar1.jpg" alt="Facial & Skin">
+        <div class="category-overlay"></div>
+      </div>
+      <h3>Facial & Skin</h3>
+      <p>Laser, IPL Face, Facial, Derma Peel</p>
+      <span class="cat-count">4 Treatment</span>
+    </div>
+
+    <div class="category-card reveal" data-treatment="Acne & Scar">
+      <div class="category-img-wrap">
+        <img src="assets/gambar1.jpg" alt="Acne & Scar">
+        <div class="category-overlay"></div>
+      </div>
+      <h3>Acne & Scar</h3>
+      <p>Acne Solution, Scar Treatment</p>
+      <span class="cat-count">2 Treatment</span>
+    </div>
+
+    <div class="category-card reveal" data-treatment="Slimming">
+      <div class="category-img-wrap">
+        <img src="assets/gambar1.jpg" alt="Slimming">
+        <div class="category-overlay"></div>
+      </div>
+      <h3>Slimming</h3>
+      <p>HIFU, Body Contouring, Radiofrequency</p>
+      <span class="cat-count">3 Treatment</span>
+    </div>
+
+    <div class="category-card reveal" data-treatment="Hair Treatment">
+      <div class="category-img-wrap">
+        <img src="assets/gambar1.jpg" alt="Hair Treatment">
+        <div class="category-overlay"></div>
+      </div>
+      <h3>Hair Care</h3>
+      <p>Hair Treatment, Hair Removal</p>
+      <span class="cat-count">2 Treatment</span>
+    </div>
   </div>
 </section>
 
-<!-- ===== LAYANAN POPULER ===== -->
-<section class="layanan" id="layanan">
+<!-- ===== PROMO BANNER ===== -->
+<section class="promo-banner" id="promo">
+  <div class="promo-banner-inner reveal">
+    <div class="promo-text">
+      <span class="promo-label">Glow Every Day ✨</span>
+      <h2>Skincare That<br><em>Loves You Back</em></h2>
+      <p>Diskon hingga <strong>Rp100.000</strong> untuk reservasi pertama. Cicilan 0% tanpa bunga untuk semua treatment.</p>
+      <a href="#" class="btn btn-primary" id="promoWaBtn">
+        Klaim Promo <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+    <div class="promo-img">
+      <img src="assets/gambar1.jpg" alt="Promo Sozo Skin Clinic">
+    </div>
+    <div class="promo-stats">
+      <div class="promo-stat">
+        <span class="promo-stat-num"><span class="counter" data-target="10">0</span>K+</span>
+        <span class="promo-stat-label">Happy Customers</span>
+      </div>
+      <div class="promo-stat">
+        <span class="promo-stat-num">4.8</span>
+        <span class="promo-stat-label">Average Rating</span>
+        <div class="promo-stars">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BESTSELLER TREATMENTS ===== -->
+<section class="bestseller" id="bestseller">
   <div class="section-head reveal">
-    <span class="section-tag">Layanan Populer</span>
-    <h2>Treatment Andalan Sozo Skin Clinic</h2>
-    <p>Pilih treatment sesuai kebutuhan kulitmu, langsung tanya harga via WhatsApp.</p>
+    <div class="head-flex">
+      <div>
+        <span class="section-tag">Paling Diminati</span>
+        <h2>Best Sellers</h2>
+      </div>
+      <a href="#layanan" class="view-all">Lihat Semua <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
   </div>
 
-  <div class="service-grid" id="serviceGrid">
-    <!-- Injectable -->
-    <div class="service-card reveal" data-treatment="Skin Booster">
-      <span class="badge badge-injectable">Injectable</span>
-      <i class="fa-solid fa-syringe"></i>
-      <h3>Skin Booster</h3>
-      <p>Meningkatkan kelembapan, elastisitas, dan kecerahan kulit.</p>
-      <button class="btn-tanya" data-treatment="Skin Booster">Tanya Harga</button>
-    </div>
-    <div class="service-card reveal" data-treatment="Zo-tox Treatment">
-      <span class="badge badge-injectable">Injectable</span>
-      <i class="fa-solid fa-syringe"></i>
-      <h3>Zo-tox Treatment</h3>
-      <p>Mengatasi kerutan, garis halus, dan mengecilkan pori-pori.</p>
-      <button class="btn-tanya" data-treatment="Zo-tox Treatment">Tanya Harga</button>
-    </div>
-    <div class="service-card reveal" data-treatment="Filler">
-      <span class="badge badge-injectable">Injectable</span>
-      <i class="fa-solid fa-syringe"></i>
-      <h3>Filler</h3>
-      <p>Menambah volume wajah dengan asam hialuronat/kolagen.</p>
-      <button class="btn-tanya" data-treatment="Filler">Tanya Harga</button>
-    </div>
-    <div class="service-card reveal" data-treatment="Threadlift">
-      <span class="badge badge-injectable">Injectable</span>
-      <i class="fa-solid fa-syringe"></i>
-      <h3>Threadlift</h3>
-      <p>Mengencangkan wajah dengan benang medis khusus.</p>
-      <button class="btn-tanya" data-treatment="Threadlift">Tanya Harga</button>
+  <div class="best-grid">
+    <div class="best-card reveal" data-treatment="Skin Booster">
+      <div class="best-img-wrap">
+        <img src="assets/gambar1.jpg" alt="Skin Booster">
+        <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+        <span class="best-badge best-badge-hot">Best Seller</span>
+      </div>
+      <div class="best-info">
+        <h3>Skin Booster</h3>
+        <div class="best-rating">
+          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <span>(128)</span>
+        </div>
+        <p class="best-desc">Meningkatkan kelembapan, elastisitas & kecerahan kulit.</p>
+        <div class="best-bottom">
+          <button class="btn-tanya" data-treatment="Skin Booster"><i class="fa-brands fa-whatsapp"></i> Tanya Harga</button>
+        </div>
+      </div>
     </div>
 
-    <!-- Facial & Skin -->
-    <div class="service-card reveal" data-treatment="Laser Treatment">
-      <span class="badge badge-facial">Facial & Skin</span>
-      <i class="fa-solid fa-star"></i>
-      <h3>Laser Treatment</h3>
-      <p>Mengangkat sel kulit mati & mempercepat regenerasi kulit.</p>
-      <button class="btn-tanya" data-treatment="Laser Treatment">Tanya Harga</button>
-    </div>
-    <div class="service-card reveal" data-treatment="IPL Face">
-      <span class="badge badge-facial">Facial & Skin</span>
-      <i class="fa-solid fa-star"></i>
-      <h3>IPL Face</h3>
-      <p>Wajah lebih halus, cerah, dan bebas jerawat.</p>
-      <button class="btn-tanya" data-treatment="IPL Face">Tanya Harga</button>
-    </div>
-    <div class="service-card reveal" data-treatment="Facial Treatment">
-      <span class="badge badge-facial">Facial & Skin</span>
-      <i class="fa-solid fa-star"></i>
-      <h3>Facial Treatment</h3>
-      <p>Deep cleansing, nutrisi, dan pelembapan kulit wajah.</p>
-      <button class="btn-tanya" data-treatment="Facial Treatment">Tanya Harga</button>
-    </div>
-    <div class="service-card reveal" data-treatment="Derma Peel">
-      <span class="badge badge-facial">Facial & Skin</span>
-      <i class="fa-solid fa-star"></i>
-      <h3>Derma Peel</h3>
-      <p>Mengangkat lapisan kulit terluar, kulit baru lebih halus.</p>
-      <button class="btn-tanya" data-treatment="Derma Peel">Tanya Harga</button>
+    <div class="best-card reveal" data-treatment="Zo-tox Treatment">
+      <div class="best-img-wrap">
+        <img src="assets/gambar1.jpg" alt="Zo-tox Treatment">
+        <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+        <span class="best-badge best-badge-new">New</span>
+      </div>
+      <div class="best-info">
+        <h3>Zo-tox Treatment</h3>
+        <div class="best-rating">
+          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+          <span>(96)</span>
+        </div>
+        <p class="best-desc">Mengatasi kerutan, garis halus & mengecilkan pori.</p>
+        <div class="best-bottom">
+          <button class="btn-tanya" data-treatment="Zo-tox Treatment"><i class="fa-brands fa-whatsapp"></i> Tanya Harga</button>
+        </div>
+      </div>
     </div>
 
-    <!-- Acne & Scar -->
-    <div class="service-card reveal" data-treatment="Acne Solution">
-      <span class="badge badge-acne">Acne & Scar</span>
-      <i class="fa-solid fa-droplet"></i>
-      <h3>Acne Solution</h3>
-      <p>Solusi jerawat sesuai kondisi kulit kamu.</p>
-      <button class="btn-tanya" data-treatment="Acne Solution">Tanya Harga</button>
-    </div>
-    <div class="service-card reveal" data-treatment="Scar Treatment">
-      <span class="badge badge-acne">Acne & Scar</span>
-      <i class="fa-solid fa-droplet"></i>
-      <h3>Scar Treatment</h3>
-      <p>Menangani bopeng, keloid, dan bekas luka di wajah/tubuh.</p>
-      <button class="btn-tanya" data-treatment="Scar Treatment">Tanya Harga</button>
-    </div>
-
-    <!-- Slimming -->
-    <div class="service-card reveal" data-treatment="HIFU Treatment">
-      <span class="badge badge-slimming">Slimming</span>
-      <i class="fa-solid fa-fire"></i>
-      <h3>HIFU Treatment</h3>
-      <p>Kulit lebih kencang, halus, dan bebas kerutan.</p>
-      <button class="btn-tanya" data-treatment="HIFU Treatment">Tanya Harga</button>
-    </div>
-    <div class="service-card reveal" data-treatment="Slimming / Body Contouring">
-      <span class="badge badge-slimming">Slimming</span>
-      <i class="fa-solid fa-fire"></i>
-      <h3>Slimming / Body Contouring</h3>
-      <p>Menghilangkan lemak lokal tanpa bedah.</p>
-      <button class="btn-tanya" data-treatment="Slimming / Body Contouring">Tanya Harga</button>
-    </div>
-    <div class="service-card reveal" data-treatment="Radiofrequency Treatment">
-      <span class="badge badge-slimming">Slimming</span>
-      <i class="fa-solid fa-fire"></i>
-      <h3>Radiofrequency Treatment</h3>
-      <p>Mengencangkan kulit kendur, tampilan lebih awet muda.</p>
-      <button class="btn-tanya" data-treatment="Radiofrequency Treatment">Tanya Harga</button>
+    <div class="best-card reveal" data-treatment="Laser Treatment">
+      <div class="best-img-wrap">
+        <img src="assets/gambar1.jpg" alt="Laser Treatment">
+        <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+      </div>
+      <div class="best-info">
+        <h3>Laser Treatment</h3>
+        <div class="best-rating">
+          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <span>(74)</span>
+        </div>
+        <p class="best-desc">Mengangkat sel kulit mati & regenerasi kulit wajah.</p>
+        <div class="best-bottom">
+          <button class="btn-tanya" data-treatment="Laser Treatment"><i class="fa-brands fa-whatsapp"></i> Tanya Harga</button>
+        </div>
+      </div>
     </div>
 
-    <!-- Hair -->
-    <div class="service-card reveal" data-treatment="Hair Treatment">
-      <span class="badge badge-hair">Hair</span>
-      <i class="fa-solid fa-wand-magic-sparkles"></i>
-      <h3>Hair Treatment</h3>
-      <p>Microneedling untuk mempercepat pertumbuhan rambut.</p>
-      <button class="btn-tanya" data-treatment="Hair Treatment">Tanya Harga</button>
-    </div>
-    <div class="service-card reveal" data-treatment="Hair Removal">
-      <span class="badge badge-hair">Hair</span>
-      <i class="fa-solid fa-wand-magic-sparkles"></i>
-      <h3>Hair Removal</h3>
-      <p>Penghilangan bulu dengan laser, aman dan tahan lama.</p>
-      <button class="btn-tanya" data-treatment="Hair Removal">Tanya Harga</button>
+    <div class="best-card reveal" data-treatment="HIFU Treatment">
+      <div class="best-img-wrap">
+        <img src="assets/gambar1.jpg" alt="HIFU Treatment">
+        <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+      </div>
+      <div class="best-info">
+        <h3>HIFU Treatment</h3>
+        <div class="best-rating">
+          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+          <span>(64)</span>
+        </div>
+        <p class="best-desc">Kulit lebih kencang, halus, dan bebas kerutan.</p>
+        <div class="best-bottom">
+          <button class="btn-tanya" data-treatment="HIFU Treatment"><i class="fa-brands fa-whatsapp"></i> Tanya Harga</button>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ===== PROMO SECTION ===== -->
-<section class="promo" id="promo">
-  <div class="promo-box reveal">
-    <h2>Promo Bulan Ini</h2>
-    <p>Wujudkan kulit impianmu dengan <strong>Cicilan 0%</strong> + diskon reservasi pertama hingga Rp100.000. Syarat & ketentuan berlaku.</p>
-    <a href="#" class="btn btn-wa btn-lg" id="promoWaBtn">
-      <i class="fa-brands fa-whatsapp"></i> Klaim Promo via WA
-    </a>
+<!-- ===== WHY SOZO ===== -->
+<section class="features-bar">
+  <div class="features-inner">
+    <div class="feature-item reveal">
+      <div class="feature-icon"><i class="fa-solid fa-truck-fast"></i></div>
+      <div>
+        <strong>Free Consultation</strong>
+        <span>Konsultasi gratis</span>
+      </div>
+    </div>
+    <div class="feature-item reveal">
+      <div class="feature-icon"><i class="fa-solid fa-rotate-left"></i></div>
+      <div>
+        <strong>Cicilan 0%</strong>
+        <span>Tanpa bunga</span>
+      </div>
+    </div>
+    <div class="feature-item reveal">
+      <div class="feature-icon"><i class="fa-solid fa-shield-heart"></i></div>
+      <div>
+        <strong>100% Aman</strong>
+        <span>BPOM certified</span>
+      </div>
+    </div>
+    <div class="feature-item reveal">
+      <div class="feature-icon"><i class="fa-solid fa-headset"></i></div>
+      <div>
+        <strong>Support 24/7</strong>
+        <span>Siap membantu</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -228,28 +339,57 @@
   <div class="section-head reveal">
     <span class="section-tag">Testimoni</span>
     <h2>Apa Kata Mereka</h2>
+    <p>Cerita nyata dari pelanggan setia Sozo Skin Clinic</p>
   </div>
 
   <div class="testi-grid">
     <div class="testi-card reveal">
+      <div class="testi-quote"><i class="fa-solid fa-quote-left"></i></div>
       <div class="testi-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
       <p>"Pelayanannya ramah, hasil treatment terlihat setelah beberapa kali sesi. Puas banget!"</p>
-      <div class="testi-user"><img src="https://placehold.co/50x50/FFE4EC/D6336C?text=A" alt="Testimoni"><span>Anisa R.</span></div>
+      <div class="testi-user">
+        <div class="testi-avatar">A</div>
+        <div>
+          <span class="testi-name">Anisa R.</span>
+          <span class="testi-role">Skin Booster</span>
+        </div>
+      </div>
     </div>
     <div class="testi-card reveal">
+      <div class="testi-quote"><i class="fa-solid fa-quote-left"></i></div>
       <div class="testi-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
       <p>"Konsultasinya gratis dan detail, jadi tahu treatment yang cocok buat kulitku."</p>
-      <div class="testi-user"><img src="https://placehold.co/50x50/FFE4EC/D6336C?text=B" alt="Testimoni"><span>Budi S.</span></div>
+      <div class="testi-user">
+        <div class="testi-avatar">B</div>
+        <div>
+          <span class="testi-name">Budi S.</span>
+          <span class="testi-role">Facial Treatment</span>
+        </div>
+      </div>
     </div>
     <div class="testi-card reveal">
+      <div class="testi-quote"><i class="fa-solid fa-quote-left"></i></div>
       <div class="testi-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
-      <p>"Harga terjangkau, bisa cicilan 0% juga. Sangat membantu."</p>
-      <div class="testi-user"><img src="https://placehold.co/50x50/FFE4EC/D6336C?text=C" alt="Testimoni"><span>Citra M.</span></div>
+      <p>"Harga terjangkau, bisa cicilan 0% juga. Sangat membantu untuk perawatan rutin."</p>
+      <div class="testi-user">
+        <div class="testi-avatar">C</div>
+        <div>
+          <span class="testi-name">Citra M.</span>
+          <span class="testi-role">Laser Treatment</span>
+        </div>
+      </div>
     </div>
     <div class="testi-card reveal">
+      <div class="testi-quote"><i class="fa-solid fa-quote-left"></i></div>
       <div class="testi-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-      <p>"Klinik bersih, dokter profesional, dan hasilnya sesuai ekspektasi."</p>
-      <div class="testi-user"><img src="https://placehold.co/50x50/FFE4EC/D6336C?text=D" alt="Testimoni"><span>Dewi K.</span></div>
+      <p>"Klinik bersih, dokter profesional, dan hasilnya sesuai ekspektasi saya."</p>
+      <div class="testi-user">
+        <div class="testi-avatar">D</div>
+        <div>
+          <span class="testi-name">Dewi K.</span>
+          <span class="testi-role">HIFU Treatment</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -258,47 +398,82 @@
 <section class="reservasi">
   <div class="section-head reveal">
     <span class="section-tag">Cara Reservasi</span>
-    <h2>3 Langkah Mudah Konsultasi</h2>
+    <h2>3 Langkah Mudah</h2>
+    <p>Mulai perjalanan kecantikanmu dalam 3 langkah sederhana</p>
   </div>
 
   <div class="steps-timeline">
     <div class="step reveal">
-      <div class="step-num">1</div>
-      <h3>Chat WA</h3>
-      <p>Hubungi [NAMA_SALES] via WhatsApp untuk konsultasi awal.</p>
+      <div class="step-icon-wrap">
+        <div class="step-num">1</div>
+        <i class="fa-brands fa-whatsapp"></i>
+      </div>
+      <h3>Chat WhatsApp</h3>
+      <p>Hubungi [NAMA_SALES] via WhatsApp untuk konsultasi awal gratis.</p>
     </div>
+    <div class="step-connector reveal"></div>
     <div class="step reveal">
-      <div class="step-num">2</div>
-      <h3>Pilih Treatment & Cabang</h3>
-      <p>Tentukan treatment yang sesuai dan cabang terdekat.</p>
+      <div class="step-icon-wrap">
+        <div class="step-num">2</div>
+        <i class="fa-solid fa-clipboard-list"></i>
+      </div>
+      <h3>Pilih Treatment</h3>
+      <p>Tentukan treatment yang sesuai dan cabang terdekat dari lokasi Anda.</p>
     </div>
+    <div class="step-connector reveal"></div>
     <div class="step reveal">
-      <div class="step-num">3</div>
-      <h3>Konsultasi & Perawatan</h3>
-      <p>Datang ke klinik untuk konsultasi dokter dan mulai perawatan.</p>
+      <div class="step-icon-wrap">
+        <div class="step-num">3</div>
+        <i class="fa-solid fa-sparkles"></i>
+      </div>
+      <h3>Mulai Perawatan</h3>
+      <p>Datang ke klinik dan rasakan pengalaman perawatan premium.</p>
     </div>
+  </div>
+
+  <div class="steps-cta reveal">
+    <a href="#" class="btn btn-primary btn-lg" id="stepsWaBtn">
+      <i class="fa-brands fa-whatsapp"></i> Mulai Konsultasi Sekarang
+    </a>
   </div>
 </section>
 
 <!-- ===== FOOTER ===== -->
 <footer class="footer" id="kontak">
-  <div class="footer-container">
-    <div class="footer-col">
-      <h3>Sozo Skin Clinic</h3>
-      <p>Beauty Consultant: <strong>[NAMA_SALES]</strong></p>
-      <p><i class="fa-brands fa-whatsapp"></i> [NOMOR_WA_SALES]</p>
-      <p><i class="fa-solid fa-envelope"></i> [EMAIL_SALES_OPSIONAL]</p>
-    </div>
-    <div class="footer-col">
-      <h3>Jam Operasional</h3>
-      <p>Senin - Minggu: 10.00 - 20.00</p>
-    </div>
-    <div class="footer-col">
-      <h3>Sosial Media</h3>
-      <div class="footer-social">
-        <a href="#"><i class="fa-brands fa-instagram"></i></a>
-        <a href="#"><i class="fa-brands fa-tiktok"></i></a>
-        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+  <div class="footer-top">
+    <div class="footer-container">
+      <div class="footer-col footer-brand">
+        <div class="footer-logo">
+          <span class="logo-sozo">SOZO</span><span class="logo-skin">SKIN</span>
+        </div>
+        <p>Beauty Consultant terpercaya siap membantu kamu memilih treatment terbaik untuk kulitmu.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <a href="#home">Home</a>
+        <a href="#layanan">Layanan</a>
+        <a href="#promo">Promo</a>
+        <a href="#testimoni">Testimoni</a>
+      </div>
+      <div class="footer-col">
+        <h3>Treatment</h3>
+        <a href="#">Injectable</a>
+        <a href="#">Facial & Skin</a>
+        <a href="#">Acne & Scar</a>
+        <a href="#">Slimming</a>
+      </div>
+      <div class="footer-col">
+        <h3>Kontak</h3>
+        <p><i class="fa-solid fa-user"></i> Beauty Consultant: <strong>[NAMA_SALES]</strong></p>
+        <p><i class="fa-brands fa-whatsapp"></i> [NOMOR_WA_SALES]</p>
+        <p><i class="fa-solid fa-clock"></i> Senin - Minggu: 10.00 - 20.00</p>
+        <p><i class="fa-solid fa-envelope"></i> [EMAIL_SALES_OPSIONAL]</p>
       </div>
     </div>
   </div>
@@ -310,6 +485,7 @@
 <!-- ===== FLOATING WHATSAPP BUTTON ===== -->
 <a href="#" class="float-wa" id="floatWaBtn" aria-label="Chat WhatsApp">
   <i class="fa-brands fa-whatsapp"></i>
+  <span class="float-wa-label">Chat Kami</span>
 </a>
 
 <script src="script.js"></script>
