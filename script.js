@@ -1,133 +1,195 @@
-// ============================================
-// KONFIGURASI - GANTI DENGAN DATA SALES KAMU
-// ============================================
-const SALES_CONFIG = {
-  phoneNumber: "62XXXXXXXXXX", // Ganti [NOMOR_WA_SALES], format: 62 diikuti nomor tanpa 0 di depan
-  salesName: "[NAMA_SALES]"
+/* ===== SALES CONFIGURATION ===== */
+var SALES_CONFIG = {
+  phoneNumber: '62XXXXXXXXXX',
+  salesName: '[NAMA_SALES]'
 };
 
-// ============================================
-// GENERATE WHATSAPP LINK
-// ============================================
+/* ===== WHATSAPP LINK BUILDER ===== */
 function buildWaLink(message) {
-  const encodedMessage = encodeURIComponent(message);
-  return `https://wa.me/${SALES_CONFIG.phoneNumber}?text=${encodedMessage}`;
+  var encodedMessage = encodeURIComponent(message);
+  return 'https://wa.me/' + SALES_CONFIG.phoneNumber + '?text=' + encodedMessage;
 }
 
-// Set link untuk tombol WA umum (navbar, hero, promo, float button)
+/* ===== SET GENERAL WA LINKS ===== */
 function setGeneralWaLinks() {
-  const generalMessage = `Halo ${SALES_CONFIG.salesName}, saya tertarik untuk konsultasi treatment di Sozo Skin Clinic. Bisa dibantu infonya?`;
-  const waLink = buildWaLink(generalMessage);
+  var generalMessage = 'Halo ' + SALES_CONFIG.salesName + ', saya tertarik untuk konsultasi treatment di Sozo Skin Clinic. Bisa dibantu infonya?';
+  var waLink = buildWaLink(generalMessage);
 
-  document.getElementById("navCta").href = waLink;
-  document.getElementById("heroWaBtn").href = waLink;
-  document.getElementById("promoWaBtn").href = waLink;
-  document.getElementById("floatWaBtn").href = waLink;
+  var waElements = ['navCta', 'heroWaBtn', 'promoWaBtn', 'floatWaBtn', 'stepsWaBtn'];
+  for (var i = 0; i < waElements.length; i++) {
+    var el = document.getElementById(waElements[i]);
+    if (el) { el.href = waLink; }
+  }
 }
 
-// Set link dinamis untuk setiap tombol "Tanya Harga"
+/* ===== SET TREATMENT WA LINKS ===== */
 function setTreatmentWaLinks() {
-  const buttons = document.querySelectorAll(".btn-tanya");
-  buttons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const treatment = btn.getAttribute("data-treatment");
-      const message = `Halo ${SALES_CONFIG.salesName}, saya ingin tanya harga dan info lebih lanjut tentang treatment "${treatment}" di Sozo Skin Clinic.`;
-      window.open(buildWaLink(message), "_blank");
+  var buttons = document.querySelectorAll('.btn-tanya');
+  for (var i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('click', function () {
+      var treatment = this.getAttribute('data-treatment');
+      var message = 'Halo ' + SALES_CONFIG.salesName + ', saya ingin tanya harga dan info lebih lanjut tentang treatment ' + treatment + ' di Sozo Skin Clinic.';
+      window.open(buildWaLink(message), '_blank');
     });
-  });
+  }
 }
 
-// ============================================
-// SMOOTH SCROLL UNTUK ANCHOR LINK
-// ============================================
+/* ===== CATEGORY CARD CLICK ===== */
+function initCategoryCards() {
+  var cards = document.querySelectorAll('.category-card');
+  for (var i = 0; i < cards.length; i++) {
+    cards[i].addEventListener('click', function () {
+      var treatment = this.getAttribute('data-treatment');
+      var message = 'Halo ' + SALES_CONFIG.salesName + ', saya tertarik dengan kategori ' + treatment + ' di Sozo Skin Clinic. Bisa dibantu infonya?';
+      window.open(buildWaLink(message), '_blank');
+    });
+  }
+}
+
+/* ===== SMOOTH SCROLL ===== */
 function initSmoothScroll() {
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", function (e) {
-      const targetId = this.getAttribute("href");
-      if (targetId.length > 1) {
-        const targetEl = document.querySelector(targetId);
+  var anchors = document.querySelectorAll('a');
+  for (var i = 0; i < anchors.length; i++) {
+    anchors[i].addEventListener('click', function (e) {
+      var href = this.getAttribute('href');
+      if (href && href.charAt(0) === '#' && href.length > 1) {
+        var targetEl = document.querySelector(href);
         if (targetEl) {
           e.preventDefault();
-          targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
+          var navHeight = document.querySelector('.navbar').offsetHeight;
+          var targetPos = targetEl.getBoundingClientRect().top + window.pageYOffset - navHeight;
+          window.scrollTo({ top: targetPos, behavior: 'smooth' });
           closeMobileMenu();
         }
       }
     });
+  }
+}
+
+/* ===== NAVBAR ACTIVE LINK ON SCROLL ===== */
+function initActiveNavLink() {
+  var sections = document.querySelectorAll('section[id]');
+  var navLinks = document.querySelectorAll('.nav-link');
+
+  function updateActive() {
+    var scrollY = window.pageYOffset;
+    var navHeight = document.querySelector('.navbar').offsetHeight;
+
+    for (var i = 0; i < sections.length; i++) {
+      var section = sections[i];
+      var sectionTop = section.offsetTop - navHeight - 100;
+      var sectionBottom = sectionTop + section.offsetHeight;
+
+      if (scrollY >= sectionTop && scrollY < sectionBottom) {
+        var id = section.getAttribute('id');
+        for (var j = 0; j < navLinks.length; j++) {
+          navLinks[j].classList.remove('active');
+          if (navLinks[j].getAttribute('href') === '#' + id) {
+            navLinks[j].classList.add('active');
+          }
+        }
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateActive);
+  updateActive();
+}
+
+/* ===== NAVBAR SCROLL EFFECT ===== */
+function initNavbarScroll() {
+  var navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
   });
 }
 
-// ============================================
-// HAMBURGER MENU MOBILE
-// ============================================
+/* ===== HAMBURGER MENU ===== */
 function initHamburgerMenu() {
-  const hamburger = document.getElementById("hamburger");
-  const navMenu = document.getElementById("navMenu");
+  var hamburger = document.getElementById('hamburger');
+  var navMenu = document.getElementById('navMenu');
 
-  hamburger.addEventListener("click", () => {
-    navMenu.classList.toggle("active");
-    hamburger.classList.toggle("active");
-  });
+  if (hamburger && navMenu) {
+    hamburger.addEventListener('click', function () {
+      navMenu.classList.toggle('active');
+      hamburger.classList.toggle('active');
+    });
+  }
 }
 
 function closeMobileMenu() {
-  const navMenu = document.getElementById("navMenu");
-  const hamburger = document.getElementById("hamburger");
-  navMenu.classList.remove("active");
-  hamburger.classList.remove("active");
+  var navMenu = document.getElementById('navMenu');
+  var hamburger = document.getElementById('hamburger');
+  if (navMenu) { navMenu.classList.remove('active'); }
+  if (hamburger) { hamburger.classList.remove('active'); }
 }
 
-// ============================================
-// SCROLL REVEAL ANIMATION
-// ============================================
+/* ===== SCROLL REVEAL ===== */
 function initScrollReveal() {
-  const revealElements = document.querySelectorAll(".reveal");
+  var revealElements = document.querySelectorAll('.reveal');
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("active");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.15 }
-  );
+  var observer = new IntersectionObserver(function (entries) {
+    for (var i = 0; i < entries.length; i++) {
+      if (entries[i].isIntersecting) {
+        // Staggered animation
+        var delay = entries[i].target.dataset.delay || 0;
+        entries[i].target.style.transitionDelay = delay + 'ms';
+        entries[i].target.classList.add('active');
+        observer.unobserve(entries[i].target);
+      }
+    }
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-  revealElements.forEach((el) => observer.observe(el));
+  for (var j = 0; j < revealElements.length; j++) {
+    observer.observe(revealElements[j]);
+  }
 }
 
-// ============================================
-// COUNTER ANIMATION UNTUK STATISTIK
-// ============================================
+/* ===== STAGGER REVEAL FOR GRIDS ===== */
+function addStaggerDelay() {
+  var grids = document.querySelectorAll('.category-grid, .best-grid, .testi-grid, .features-inner, .trust-badges');
+  for (var i = 0; i < grids.length; i++) {
+    var children = grids[i].children;
+    for (var j = 0; j < children.length; j++) {
+      if (children[j].classList.contains('reveal')) {
+        children[j].dataset.delay = j * 80;
+      }
+    }
+  }
+}
+
+/* ===== COUNTER ANIMATION ===== */
 function initCounterAnimation() {
-  const counters = document.querySelectorAll(".counter");
+  var counters = document.querySelectorAll('.counter');
 
-  const counterObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          animateCounter(entry.target);
-          counterObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.5 }
-  );
+  var counterObserver = new IntersectionObserver(function (entries) {
+    for (var i = 0; i < entries.length; i++) {
+      if (entries[i].isIntersecting) {
+        animateCounter(entries[i].target);
+        counterObserver.unobserve(entries[i].target);
+      }
+    }
+  }, { threshold: 0.5 });
 
-  counters.forEach((counter) => counterObserver.observe(counter));
+  for (var j = 0; j < counters.length; j++) {
+    counterObserver.observe(counters[j]);
+  }
 }
 
 function animateCounter(el) {
-  const target = parseInt(el.getAttribute("data-target"), 10);
-  const duration = 1500;
-  const stepTime = 20;
-  const steps = duration / stepTime;
-  const increment = target / steps;
-  let current = 0;
+  var target = parseInt(el.getAttribute('data-target'), 10);
+  var duration = 1800;
+  var stepTime = 16;
+  var steps = duration / stepTime;
+  var increment = target / steps;
+  var current = 0;
 
-  const timer = setInterval(() => {
-    current += increment;
+  var timer = setInterval(function () {
+    current = current + increment;
     if (current >= target) {
       el.textContent = target;
       clearInterval(timer);
@@ -137,22 +199,57 @@ function animateCounter(el) {
   }, stepTime);
 }
 
-// ============================================
-// SET TAHUN OTOMATIS DI FOOTER
-// ============================================
-function setCurrentYear() {
-  document.getElementById("year").textContent = new Date().getFullYear();
+/* ===== WISHLIST TOGGLE ===== */
+function initWishlist() {
+  var wishlistBtns = document.querySelectorAll('.wishlist-btn');
+  for (var i = 0; i < wishlistBtns.length; i++) {
+    wishlistBtns[i].addEventListener('click', function (e) {
+      e.stopPropagation();
+      this.classList.toggle('active');
+      var icon = this.querySelector('i');
+      if (this.classList.contains('active')) {
+        icon.className = 'fa-solid fa-heart';
+      } else {
+        icon.className = 'fa-regular fa-heart';
+      }
+    });
+  }
 }
 
-// ============================================
-// INIT SEMUA FUNGSI SAAT DOM READY
-// ============================================
-document.addEventListener("DOMContentLoaded", () => {
+/* ===== PARALLAX EFFECT ON HERO IMAGE ===== */
+function initHeroParallax() {
+  var heroImg = document.querySelector('.hero-img img');
+  if (!heroImg) return;
+
+  window.addEventListener('scroll', function () {
+    var scrollY = window.pageYOffset;
+    if (scrollY < 600) {
+      heroImg.style.transform = 'translateY(' + (scrollY * 0.08) + 'px)';
+    }
+  });
+}
+
+/* ===== SET CURRENT YEAR ===== */
+function setCurrentYear() {
+  var yearEl = document.getElementById('year');
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+  }
+}
+
+/* ===== INIT ALL ===== */
+document.addEventListener('DOMContentLoaded', function () {
   setGeneralWaLinks();
   setTreatmentWaLinks();
+  initCategoryCards();
   initSmoothScroll();
+  initActiveNavLink();
+  initNavbarScroll();
   initHamburgerMenu();
+  addStaggerDelay();
   initScrollReveal();
   initCounterAnimation();
+  initWishlist();
+  initHeroParallax();
   setCurrentYear();
 });
