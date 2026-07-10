@@ -1,7 +1,7 @@
 /* ===== SALES CONFIGURATION ===== */
 var SALES_CONFIG = {
-  phoneNumber: '62XXXXXXXXXX',
-  salesName: '[NAMA_SALES]'
+  phoneNumber: '6285864234079',
+  salesName: 'Risvi Afriyanti'
 };
 
 /* ===== WHATSAPP LINK BUILDER ===== */
@@ -15,7 +15,7 @@ function setGeneralWaLinks() {
   var generalMessage = 'Halo ' + SALES_CONFIG.salesName + ', saya tertarik untuk konsultasi treatment di Sozo Skin Clinic. Bisa dibantu infonya?';
   var waLink = buildWaLink(generalMessage);
 
-  var waElements = ['navCta', 'heroWaBtn', 'promoWaBtn', 'floatWaBtn', 'stepsWaBtn'];
+  var waElements = ['heroWaBtn', 'promoWaBtn', 'floatWaBtn', 'stepsWaBtn'];
   for (var i = 0; i < waElements.length; i++) {
     var el = document.getElementById(waElements[i]);
     if (el) { el.href = waLink; }
@@ -36,14 +36,7 @@ function setTreatmentWaLinks() {
 
 /* ===== CATEGORY CARD CLICK ===== */
 function initCategoryCards() {
-  var cards = document.querySelectorAll('.category-card');
-  for (var i = 0; i < cards.length; i++) {
-    cards[i].addEventListener('click', function () {
-      var treatment = this.getAttribute('data-treatment');
-      var message = 'Halo ' + SALES_CONFIG.salesName + ', saya tertarik dengan kategori ' + treatment + ' di Sozo Skin Clinic. Bisa dibantu infonya?';
-      window.open(buildWaLink(message), '_blank');
-    });
-  }
+  // Fitur klik menuju WA dimatikan, card hanya memberikan efek pop up (hover) dari CSS
 }
 
 /* ===== SMOOTH SCROLL ===== */
