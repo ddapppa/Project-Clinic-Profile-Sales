@@ -1,7 +1,7 @@
 /* ===== SALES CONFIGURATION ===== */
 var SALES_CONFIG = {
   phoneNumber: '6285864234079',
-  salesName: 'Risvi Afriyanti'
+  salesName: 'Risvi Afri '
 };
 
 /* ===== WHATSAPP LINK BUILDER ===== */
@@ -230,6 +230,8 @@ function setCurrentYear() {
   }
 }
 
+
+
 /* ===== INIT ALL ===== */
 document.addEventListener('DOMContentLoaded', function () {
   setGeneralWaLinks();
@@ -245,4 +247,125 @@ document.addEventListener('DOMContentLoaded', function () {
   initWishlist();
   initHeroParallax();
   setCurrentYear();
+  initServiceModal();
 });
+
+// ================= SERVICE LIST MODAL ================= //
+function initServiceModal() {
+  var openBtn = document.getElementById('openServiceListBtn');
+  var overlay = document.getElementById('serviceModalOverlay');
+  var closeBtn = document.getElementById('serviceModalClose');
+  var track = document.getElementById('serviceSliderTrack');
+  var viewport = document.getElementById('serviceSliderViewport');
+  var prevBtn = document.getElementById('servicePrevBtn');
+  var nextBtn = document.getElementById('serviceNextBtn');
+  var dotsWrap = document.getElementById('serviceModalDots');
+
+  if (!openBtn || !overlay || !track) return;
+
+  var slides = track.querySelectorAll('.service-slide');
+  var total = slides.length;
+  var currentIndex = 0;
+  var startX = 0;
+  var currentX = 0;
+  var isDragging = false;
+
+  // Build dots
+  for (var i = 0; i < total; i++) {
+    var dot = document.createElement('span');
+    dot.dataset.index = i;
+    dot.addEventListener('click', function () {
+      goToSlide(parseInt(this.dataset.index, 10));
+    });
+    dotsWrap.appendChild(dot);
+  }
+  var dots = dotsWrap.querySelectorAll('span');
+
+  function updateUI() {
+    track.style.transform = 'translateX(' + (-currentIndex * 100) + '%)';
+    for (var i = 0; i < dots.length; i++) {
+      dots[i].classList.toggle('active', i === currentIndex);
+    }
+    prevBtn.disabled = currentIndex === 0;
+    nextBtn.disabled = currentIndex === total - 1;
+  }
+
+  function goToSlide(index) {
+    if (index < 0) index = 0;
+    if (index > total - 1) index = total - 1;
+    currentIndex = index;
+    updateUI();
+  }
+
+  function openModal() {
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    goToSlide(0);
+  }
+
+  function closeModal() {
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  openBtn.addEventListener('click', openModal);
+  closeBtn.addEventListener('click', closeModal);
+  overlay.addEventListener('click', function (e) {
+    if (e.target === overlay) closeModal();
+  });
+  prevBtn.addEventListener('click', function () { goToSlide(currentIndex - 1); });
+  nextBtn.addEventListener('click', function () { goToSlide(currentIndex + 1); });
+
+  document.addEventListener('keydown', function (e) {
+    if (!overlay.classList.contains('active')) return;
+    if (e.key === 'Escape') closeModal();
+    if (e.key === 'ArrowRight') goToSlide(currentIndex + 1);
+    if (e.key === 'ArrowLeft') goToSlide(currentIndex - 1);
+  });
+
+  // Swipe / drag support
+  function dragStart(x) {
+    isDragging = true;
+    startX = x;
+    currentX = x;
+    track.classList.add('dragging');
+  }
+
+  function dragMove(x) {
+    if (!isDragging) return;
+    currentX = x;
+    var deltaPercent = ((currentX - startX) / viewport.offsetWidth) * 100;
+    track.style.transform = 'translateX(' + (-currentIndex * 100 + deltaPercent) + '%)';
+  }
+
+  function dragEnd() {
+    if (!isDragging) return;
+    isDragging = false;
+    track.classList.remove('dragging');
+    var deltaPercent = ((currentX - startX) / viewport.offsetWidth) * 100;
+    if (deltaPercent < -15 && currentIndex < total - 1) {
+      currentIndex++;
+    } else if (deltaPercent > 15 && currentIndex > 0) {
+      currentIndex--;
+    }
+    updateUI();
+  }
+
+  viewport.addEventListener('touchstart', function (e) {
+    dragStart(e.touches[0].clientX);
+  }, { passive: true });
+  viewport.addEventListener('touchmove', function (e) {
+    dragMove(e.touches[0].clientX);
+  }, { passive: true });
+  viewport.addEventListener('touchend', dragEnd);
+
+  viewport.addEventListener('mousedown', function (e) {
+    dragStart(e.clientX);
+  });
+  window.addEventListener('mousemove', function (e) {
+    if (isDragging) dragMove(e.clientX);
+  });
+  window.addEventListener('mouseup', dragEnd);
+
+  updateUI();
+}
